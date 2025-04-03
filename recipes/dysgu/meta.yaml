@@ -1,6 +1,6 @@
 {% set name = "dysgu" %}
-{% set version = "1.6.2" %}
-{% set sha256hash = "6db67f3abd45ca60f768adc9e154a879e604496909e9d243efd55513d6009910" %}
+{% set version = "1.8.1" %}
+{% set sha256hash = "fb29291e5139cbd179dd12281bb43890f96a69141aa5a166410bc5e5f9ddb100" %}
 
 package:
   name: {{ name|lower }}
@@ -12,11 +12,11 @@ source:
 
 build:
   number: 0
-  binary_relocation: False
+  binary_relocation: false
   entry_points:
     - dysgu = dysgu.main:cli
   run_exports:
-    - {{ pin_subpackage('dysgu', max_pin="x") }}
+    - {{ pin_subpackage('dysgu', max_pin='x') }}
 
 requirements:
   build:
@@ -24,46 +24,41 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python >=3.7
-    - setuptools >=63.0
-    - cython
+    - python
+    - cython >=0.29
     - htslib >=1.12
     - numpy >=1.18
-    - lightgbm
-    - zlib
+    - lightgbm >=3.1
+    - zlib >=1.2
     - pysam >=0.19
-    - libcurl
-    - openssl
-    - bzip2
-    - xz
+    - libcurl >=7.75
+    - openssl >=1.1
+    - bzip2 >=1.0.8
+    - xz >=5.2
     - wheel
     - scipy >=1.7
     - pandas >=1.2
     - networkx >=2.4
     - scikit-learn >=0.22
-    - python-edlib
-    - sortedcontainers
-    - click >=8.0
   run:
-    - python >=3.7
+    - python
     - numpy >=1.18
-    - scipy >1.7
+    - scipy >=1.7
     - pandas >=1.2
     - networkx >=2.4
     - scikit-learn >=0.22
-    - python-edlib
     - sortedcontainers
-    - lightgbm
-    - zlib
+    - lightgbm >=3.1
+    - zlib >=1.2
     - click >=8.0
-    - pysam >=0.19
-    - libcurl
-    - openssl
-    - bzip2
-    - xz
+    - pysam >=0.22
+    - libcurl >=7.75
+    - openssl >=1.1
+    - bzip2 >=1.0.8
+    - xz >=5.2
     - htslib >=1.12
-    - wheel
-    - cython
+    - cython >=0.29
+    - superintervals >=0.2.10
 
 test:
   requires:
@@ -73,7 +68,7 @@ test:
   files:
     - dysgu/tests/*
   commands:
-    - 'dysgu --help'
+    - dysgu --help
 
 about:
   home: https://github.com/kcleal/dysgu
@@ -81,10 +76,13 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.md
+  dev_url: https://github.com/kcleal/dysgu
 
 extra:
+  additional-platforms:
+    - linux-aarch64
   container:
-      extended-base: True
+    extended-base: true
   recipe-maintainers:
     - kcleal
   skip-lints:

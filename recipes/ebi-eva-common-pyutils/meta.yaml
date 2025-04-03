@@ -1,5 +1,5 @@
 {% set name = "ebi-eva-common-pyutils" %}
-{% set version = "0.6.6" %}
+{% set version = "0.6.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ebi_eva_common_pyutils-{{ version }}.tar.gz
-  sha256: 9f55b4482b52fad605e7fbca061f200b82277bfac967fbf55688f5724dd76348
+  sha256: d3af2766709c0aed780043eaf067144bff680397ca754845991040b3f233fd34
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation

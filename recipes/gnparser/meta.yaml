@@ -1,5 +1,5 @@
-{% set version = "1.9.1" %}
-{% set sha256 = "90090b57eb7b1c3f21cdb9abc37151d87e3f03268ddb82c0fd948c2403352501" %}
+{% set version = "1.11.5" %}
+{% set sha256 = "881cbbae4ecfbdde4e92d6137225358265a952e62d6a97d9ff1811999dd74f44" %}
 
 package:
   name: "gnparser"
@@ -34,5 +34,8 @@ about:
 
 
 extra:
+  additional-platforms:
+    - linux-aarch64
+    - osx-arm64
   identifiers:
     - doi:https://doi.org/10.5281/zenodo.5111569
